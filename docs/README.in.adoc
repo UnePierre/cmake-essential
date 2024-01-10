@@ -36,13 +36,12 @@ ifndef::indir[:indir: .]
 
 == About
 
-image:data/vecteezy_pyramid-vector-icon-sign-icon-vector-illustration-for-personal-and-commercial-use-clean-look-trendy-icon_289688.svg[Pyramid with five colored layers,64,64]
+image:data/vecteezy_pyramid_289688.svg[Pyramid with five colored layers,64,64]
 
 {description}
 
 == Documentation
 
-WARNING: TODO!
 
 === Usage
 
@@ -64,8 +63,7 @@ If your project has a <<Directory Layout>> similar to this project's, the right 
 
 === Issues
 
-This project uses the @PROJECT_HOMEPAGE_URL@/-/issues[lightweight issue tracker] provided by GitLab.
-There is no corresponding Mantis bug-tracker project.
+Please use the hosting website to track {url-issues}[issues].
 
 === Directory Layout
 
@@ -77,19 +75,24 @@ This is also the source for the following directory description (though they wer
 PFL prescribes several directories that should appear at the root of the project tree. Not all of the directories are required, but they have an assigned purpose, and no other directory in the filesystem may assume the role of one of these directories. That is, these directories must be the ones used if their purpose is required.
 
 Other directories should not appear at the root.
+-- Empty directories are not stored.
 
+////
 link:build/[]::
     A special directory that should not be considered part of the source of the project.
     Used for storing ephemeral build results.
     Must not be checked into source control.
     If using source control, must be ignored using source control ignore-lists.
     -- So .gitignore has an entry for it.
+////
 
+////
 link:src/[]::
     Main compilable source location.
     Must be present for projects with compiled components that do not use submodules.
     In the presence of link:include/[], also contains private headers.
     -- empty
+////
 
 link:include/[]::
     Directory for public headers.
@@ -98,6 +101,7 @@ link:include/[]::
     May be omitted for projects that use submodules.
     -- Contains the "essential" *.cmake files required by projects that consume @PROJECT_NAME@.
 
+////
 link:tests/[]::
     Directory for tests.
     -- empty
@@ -113,6 +117,7 @@ link:external/[]::
 link:extras/[]::
     Directory containing extra/optional submodules for the project.
     -- empty
+////
 
 link:data/[]::
     Directory containing non-source code aspects of the project.
@@ -121,18 +126,24 @@ link:data/[]::
 
 link:tools/[]::
     Directory containing development utilities, such as build and refactoring scripts.
-    -- empty
+    -- Contains templates to generate the CMake module files:
+    * link:tools/CMakeLists.in.cmake[] -> link:CMakeLists.txt[]
+    * link:tools/CMakeEssential.in.cmake[] -> link:CMakeEssential.cmake[]
+    * link:tools/CMakeEssentialConfig.in.cmake[] -> link:CMakeEssentialConfig.in.cmake[]
 
 link:docs/[]::
     Directory for project documentation.
-    -- Contains README.in.adoc and LICENSE.in.adoc.
+    -- Contains templates to generate the documentation:
+    * link:docs/README.in.adoc[] -> link:REAMDE.adoc[]
+//    * link:docs/LICENSE.in.adoc[] -> link:LICENSE.adoc[]
 
+////
 link:libs/[]::
     Directory for main project submodules.
     The link:libs/[] directory must not be used unless the project wishes to subdivide itself into submodules.
     Its presence excludes the link:src/[] and link:include/[] directories.
     -- Unused!
-
+////
 
 === File Name Conventions
 
@@ -167,7 +178,7 @@ So, here are the most important rules for filenames:
 
 10. No extension for (bash) scripts -- Because {url-commandname-extensions-harmful}[Commandname Extensions [are\] Considered Harmful].
 
-11. TODO: coding guidelines for module / class names and their filenames.
+// TODO: coding guidelines for module / class names and their filenames.
 
 === Conventional Commits
 

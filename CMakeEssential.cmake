@@ -2,7 +2,7 @@ include(FeatureSummary)
 set_package_properties(
     CMakeEssential PROPERTIES
     DESCRIPTION "Essential CMake snippets for software development with modern CMake"
-    URL ""
+    URL "https://github.com/UnePierre/cmake-essential"
     TYPE RECOMMENDED)
 
 # Provided snippets:

@@ -49,8 +49,10 @@ function(git_describe_version variable_name)
         OUTPUT_VARIABLE output
         ERROR_VARIABLE error)
     if(ok EQUAL 0)
+        message(TRACE "git_describe_version: ${output}")
         set(${variable_name} "${output}" PARENT_SCOPE)
     else()
+        message(TRACE "git_describe_version: ${output}")
         message(FATAL_ERROR "'git describe' unsuccessful! (${error})")
     endif()
 

@@ -1,0 +1,9 @@
+{
+    "[yaml]": {
+        "editor.autoIndent": "advanced"
+    },
+    "[dockercompose]": {
+        "editor.autoIndent": "advanced"
+    },
+    "yaml.format.printWidth": 250,
+}

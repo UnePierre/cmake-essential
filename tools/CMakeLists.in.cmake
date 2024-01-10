@@ -4,7 +4,7 @@ include("include/Policies.cmake")
 include("include/Project.cmake")
 
 # This project can be used via 'git subtree' or copy&paste, where git cannot provide the version number.
-set(PROJECT_VERSION "1.0.3")
+set(PROJECT_VERSION "@PROJECT_VERSION@")
 
 project(
     CMakeEssential

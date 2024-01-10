@@ -1,4 +1,4 @@
-set(CMakeEssential_VERSION 1.0.2)
+set(CMakeEssential_VERSION 1.0.3)
 
 
 ####### Expanded from @PACKAGE_INIT@ by configure_package_config_file() #######

@@ -1,19 +1,21 @@
 # Reserved by the Pitchfork Layout
 /*build*/
 
-# TODO: install paths when installing into the source tree
-# README.MD
-# bin/
-
 # editor workspaces
 *.code-workspace
 !/tools/*.code-workspace
-.vscode/
 .cache/
 
+# CMake
 CMakeLists.txt.user
-CMakeUserPresets.json
-
-CMakeFiles/
 CMakeCache.txt
-cmake_install.txt
+CMakeFiles/
+CMakeScripts
+CMakeUserPresets.json
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
