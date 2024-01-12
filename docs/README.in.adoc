@@ -134,7 +134,7 @@ link:tools/[]::
 link:docs/[]::
     Directory for project documentation.
     -- Contains templates to generate the documentation:
-    * link:docs/README.in.adoc[] -> link:REAMDE.adoc[]
+    * link:docs/README.in.adoc[] -> link:README.adoc[]
 //    * link:docs/LICENSE.in.adoc[] -> link:LICENSE.adoc[]
 
 ////
