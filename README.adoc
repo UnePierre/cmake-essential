@@ -51,6 +51,10 @@ image:data/vecteezy_pyramid_289688.svg[Pyramid with five colored layers,64,64]
 
 ==== git submodule
 
+==== SVN?
+
+WARNING: maybe no Subversion?
+
 
 ==== Copy & Paste
 
