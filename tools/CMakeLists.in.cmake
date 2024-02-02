@@ -15,6 +15,7 @@ project(
 project_message_context()
 
 set(provided_snippets
+    "Assert.cmake"
     "Ccache.cmake"
     "Git.cmake"
     "MessageContext.cmake"

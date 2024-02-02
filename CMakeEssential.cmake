@@ -6,6 +6,7 @@ set_package_properties(
     TYPE RECOMMENDED)
 
 # Provided snippets:
+include("${CMAKE_CURRENT_LIST_DIR}/include/Assert.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/include/Ccache.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/include/Git.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/include/MessageContext.cmake")

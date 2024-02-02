@@ -2,7 +2,7 @@
 :author: Max FERGER
 // Metadata:
 :description: Essential CMake snippets for software development with modern CMake
-:revnumber: 1.0.3.2
+:revnumber: 1.1.0
 // References:
 :url-repo: https://github.com/UnePierre/cmake-essential
 :url-issues: {url-repo}/-/issues
