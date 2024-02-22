@@ -35,14 +35,14 @@ endfunction()
 #
 # Find the closest matching 3-digit version with `git describe`.
 #
-# The actual call is similar to `git describe --all --match "v*.*.*" --dirty --broken --always --long`, for details, see: https://git-scm.com/docs/git-describe
+# The actual call is similar to `git describe --all --match "*.*.*" --dirty --broken --always --long`, for details, see: https://git-scm.com/docs/git-describe
 #
 function(git_describe_version variable_name)
 
     git_dir(dir)
 
     execute_process(
-        COMMAND "${GIT_EXECUTABLE}" describe --all --match "v*.*.*" --dirty --broken --always --long
+        COMMAND "${GIT_EXECUTABLE}" describe --all --match "*.*.*" --dirty --broken --always --long
         WORKING_DIRECTORY "${dir}"
         OUTPUT_STRIP_TRAILING_WHITESPACE
         RESULT_VARIABLE ok
@@ -64,7 +64,7 @@ endfunction()
 #
 # If the minor or patch part of the version is `x`, it will be replaced by `0`.
 #
-# This allows versions to be calculated from branch names like "v1.2.x".
+# This allows versions to be calculated from branch names like "1.2.x".
 #
 # Optionally extract the output of `git describe`, the commit id and whether the working copy is dirty into the given variables.
 #
@@ -79,7 +79,7 @@ function(get_version_from_git_describe version)
 
     string(REPLACE ".x" ".0" git_describe_version_x0 "${git_description}")
 
-    if(NOT git_describe_version_x0 MATCHES [[v([0-9]+)\.([0-9]*)\.([0-9]*)-([0-9]+)-g([a-z0-9]+)(-dirty)?$]])
+    if(NOT git_describe_version_x0 MATCHES [[([0-9]+)\.([0-9]*)\.([0-9]*)-([0-9]+)-g([a-z0-9]+)(-dirty)?$]])
         message(FATAL_ERROR "Cannot match version numbers in output of 'git describe' (${git_description})!")
     endif()
 
