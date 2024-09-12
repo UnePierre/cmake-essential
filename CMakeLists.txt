@@ -4,7 +4,7 @@ include("include/Policies.cmake")
 include("include/Project.cmake")
 
 # This project can be used via 'git subtree' or copy&paste, where git cannot provide the version number.
-set(PROJECT_VERSION "1.1.1")
+set(PROJECT_VERSION "1.1.2")
 
 project(
     CMakeEssential
@@ -15,14 +15,14 @@ project(
 project_message_context()
 
 set(provided_snippets
-    "Assert.cmake"
-    "Ccache.cmake"
-    "Git.cmake"
-    "MessageContext.cmake"
-    "ParseArguments.cmake"
-    "Policies.cmake"
-    "Project.cmake"
-    "TestByCompilation.cmake")
+    Assert.cmake
+    Ccache.cmake
+    Git.cmake
+    MessageContext.cmake
+    ParseArguments.cmake
+    Policies.cmake
+    Project.cmake
+    TestByCompilation.cmake)
 
 if(PROJECT_IS_TOP_LEVEL)
     include(CMakePackageConfigHelpers)
@@ -31,6 +31,19 @@ if(PROJECT_IS_TOP_LEVEL)
     include(GNUInstallDirs)
     set(INSTALL_LIBDIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 
+    # Search for include/*.cmake and check against the list of provided_snippets.
+    file(
+        GLOB found_snippets CONFIGURE_DEPENDS
+        LIST_DIRECTORIES false
+        RELATIVE "${CMAKE_CURRENT_LIST_DIR}/include"
+        "include/*.cmake")
+    list(SORT found_snippets CASE INSENSITIVE)
+    if(NOT provided_snippets STREQUAL found_snippets)
+        message(AUTHOR_WARNING "The lists of provided (${provided_snippets}) and found snippets (${found_snippets}) differ, taking the latter!")
+        set(provided_snippets ${found_snippets})
+    endif()
+    
+    # Make all provided snippets available in this project for itself.
     foreach(snippet ${provided_snippets})
         include("include/${snippet}")
     endforeach()
@@ -50,18 +63,6 @@ if(PROJECT_IS_TOP_LEVEL)
         if(is_dirty)
             git_status(AUTHOR_WARNING)
         endif()
-
-        # Search for include/*.cmake and check against the list of provided_snippets.
-        file(
-            GLOB found_snippets CONFIGURE_DEPENDS
-            LIST_DIRECTORIES false
-            RELATIVE "${CMAKE_CURRENT_LIST_DIR}/include"
-            "include/*.cmake")
-        list(SORT found_snippets CASE INSENSITIVE)
-
-        if(NOT provided_snippets STREQUAL found_snippets)
-            message(AUTHOR_WARNING "The lists of provided (${provided_snippets}) and found snippets (${found_snippets}) differ!")
-        endif()
     endif()
 
     message_context(README)
@@ -73,6 +74,8 @@ if(PROJECT_IS_TOP_LEVEL)
     end_message_context()
 
     message_context(CMakeLists.txt)
+    set(LIST_OF_PROVIDED_SNIPPETS ${provided_snippets})
+    list(JOIN LIST_OF_PROVIDED_SNIPPETS "\n    " LIST_OF_PROVIDED_SNIPPETS)
     configure_file(tools/CMakeLists.in.cmake "${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt" @ONLY)
     configure_file(CMakeLists.txt CMakeLists.txt COPYONLY)
     install(FILES CMakeLists.txt DESTINATION "${INSTALL_LIBDIR}")
