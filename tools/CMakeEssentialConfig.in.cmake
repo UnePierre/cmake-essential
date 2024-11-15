@@ -1,3 +1,5 @@
+include_guard()
+
 set(CMakeEssential_VERSION @PROJECT_VERSION@)
 
 @PACKAGE_INIT@

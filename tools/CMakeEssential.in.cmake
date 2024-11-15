@@ -1,3 +1,5 @@
+include_guard()
+
 include(FeatureSummary)
 set_package_properties(
     CMakeEssential PROPERTIES

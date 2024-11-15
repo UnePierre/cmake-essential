@@ -1,3 +1,4 @@
+include_guard(GLOBAL)
 find_package(Git REQUIRED QUIET)
 include("${CMAKE_CURRENT_LIST_DIR}/ParseArguments.cmake")
 

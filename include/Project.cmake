@@ -1,3 +1,4 @@
+include_guard(GLOBAL)
 include(FeatureSummary)
 
 # Back-port PROJECT_IS_TOP_LEVEL functionality for CMake before 3.21.

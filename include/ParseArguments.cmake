@@ -1,3 +1,5 @@
+include_guard(GLOBAL)
+
 # parse_arguments(N "list;of;options" "list;of;one-valued;keywords" "list;of;multi-valued;keywords")
 #
 # This macro is a convenience wrapper around `cmake_parse_arguments(PARSE_ARGV ...)` with error/debug/trace messages.

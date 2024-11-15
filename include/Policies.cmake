@@ -1,3 +1,4 @@
+include_guard(GLOBAL)
 cmake_policy(SET CMP0002 NEW) # Logical target names must be globally unique.
 cmake_policy(SET CMP0017 NEW) # Prefer files from the CMake module directory when including from there.
 cmake_policy(SET CMP0028 NEW) # Double colon in target name means ALIAS or IMPORTED target.

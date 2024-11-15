@@ -1,3 +1,5 @@
+include_guard(GLOBAL)
+
 # assert(<test> [...])
 #
 # Output a SEND_ERROR message, iff the test fails, including the test and all other arguments.

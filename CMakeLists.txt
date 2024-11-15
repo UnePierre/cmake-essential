@@ -1,10 +1,11 @@
 # Acquire CMake environment.
 cmake_minimum_required(VERSION 3.21.0...3.28.1)
+include_guard()
 include("include/Policies.cmake")
 include("include/Project.cmake")
 
 # This project can be used via 'git subtree' or copy&paste, where git cannot provide the version number.
-set(PROJECT_VERSION "1.1.2")
+set(PROJECT_VERSION "1.2.0")
 
 project(
     CMakeEssential

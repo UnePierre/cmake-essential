@@ -1,3 +1,5 @@
+include_guard(GLOBAL)
+
 # message_context(<name [CONTEXT_VARIABLE <variable>])
 #
 # Components within CMake scripts can be placed recursively into contexts.

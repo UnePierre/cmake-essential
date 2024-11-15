@@ -1,5 +1,6 @@
 # Acquire CMake environment.
 cmake_minimum_required(VERSION 3.21.0...3.28.1)
+include_guard()
 include("include/Policies.cmake")
 include("include/Project.cmake")
 
