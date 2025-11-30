@@ -1,6 +1,6 @@
 include_guard()
 
-set(CMakeEssential_VERSION 1.2.0.1)
+set(CMakeEssential_VERSION 1.2.0.2)
 
 
 ####### Expanded from @PACKAGE_INIT@ by configure_package_config_file() #######
